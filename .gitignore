@@ -1,0 +1,16 @@
+# 构建产物（仓库里不存二进制，安装包放在 Release）
+*.apk
+*.aab
+
+# 个人/临时文件
+.workbuddy/
+.scratch/
+handoff-*.md
+*.jpg
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 第三方音源脚本备份（非本项目代码，不随仓库分发）
+.backup-thirdparty-assets/

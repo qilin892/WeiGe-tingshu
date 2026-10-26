@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  图标前景：一本书 + 封面上的 W（伟哥）。
+
+  几何都是 108x108 viewBox 里的绝对坐标，落在 66dp 安全区内；
+  真正的实现在 tools/render_icon.py 里有一份等价的预览，改坐标记得两边一起改。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 封面：3:4 的圆角书，30..74 x 24..84 -->
+    <path
+        android:fillColor="#FF7A18"
+        android:pathData="M38,24 H66 A8,8 0 0 1 74,32 V76 A8,8 0 0 1 66,84 H38 A8,8 0 0 1 30,76 V32 A8,8 0 0 1 38,24 Z" />
+
+    <!-- 右上角三条书页线：一眼看出这是本书，不是方块 -->
+    <path
+        android:pathData="M67.5,31 H73.5 M67.5,37 H73.5 M67.5,43 H73.5"
+        android:strokeColor="#B35410"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round" />
+
+    <!-- W：伟哥的首字母，中峰与两端齐平 -->
+    <path
+        android:pathData="M38,46 L44.5,72 L52,46 L59.5,72 L66,46"
+        android:strokeColor="#0A0908"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

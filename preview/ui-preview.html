@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>伟哥听书 · 真机截图</title>
+<style>
+  :root{
+    --bg:#0A0908; --panel:#14110F; --line:#2E2419;
+    --accent:#FF7A18; --text:#F4ECDD; --text2:#A89B88; --text3:#6B6154;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:#EDE7DB; color:#201A14; min-height:100vh;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    padding:44px 24px 64px;
+  }
+  .head{max-width:1320px;margin:0 auto 28px;}
+  .head h1{font-size:26px;letter-spacing:.5px;}
+  .head p{color:#6F6355;font-size:13px;margin-top:8px;line-height:1.8;}
+  .head code{background:#e2d9c7;padding:1px 5px;border-radius:4px;font-size:12px;}
+  .row{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;max-width:1320px;margin:0 auto;}
+  .item{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .item img{
+    width:330px;border-radius:26px;display:block;
+    box-shadow:0 22px 50px rgba(20,17,15,.26);
+  }
+  .cap{font-size:12px;color:#6F6355;letter-spacing:.5px;text-align:center;line-height:1.7;}
+  .cap b{color:#201A14;font-weight:600;}
+  .facts{
+    max-width:1320px;margin:38px auto 0;background:#fff;border-radius:14px;
+    padding:20px 24px;box-shadow:0 2px 10px rgba(20,17,15,.06);
+  }
+  .facts h2{font-size:15px;margin-bottom:12px;}
+  .facts table{border-collapse:collapse;width:100%;font-size:13px;}
+  .facts td{padding:7px 10px 7px 0;border-bottom:1px solid #eee;vertical-align:top;}
+  .facts td:first-child{width:150px;color:#6F6355;}
+  .ok{color:#15803D;font-weight:600;}
+  .warn{color:#B45309;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>伟哥听书 · 界面与图标</h1>
+  <p>
+    华为 BRA-AL00 / Android 12，<b>v1.2.0</b> 实拍（底部还是三个页签）。
+    v1.3.0 删掉了「书源」页、首页抬头换成品牌名，v1.3.1 换了新图标——这两版还没补真机截图。
+    内容全部来自内置的喜马拉雅接口：搜索 → 专辑音轨 → MP3 直链，不经过任何网页解析。
+  </p>
+  <p style="margin-top:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <img src="icon-final.png" alt="应用图标" style="width:420px;border-radius:10px;background:#EDE7DB;">
+    <span style="font-size:13px;color:#6F6355;line-height:1.9;max-width:420px;">
+      <b>图标：一本书，封面上刻着 W。</b><br>
+      W 是「伟」的首字母；3:4 的圆角封面 + 右上角三条书页线说明它是本书。<br>
+      暖橙 <code style="background:#e2d9c7;padding:1px 4px;border-radius:4px;">#FF7A18</code>
+      配 <code style="background:#e2d9c7;padding:1px 4px;border-radius:4px;">#0A0908</code>，跟界面同一套色。<br>
+      图里四档尺寸含圆形遮罩，验证过不会被系统裁掉关键形状。
+    </span>
+  </p>
+</div>
+
+<div class="row">
+  <div class="item">
+    <img src="shot-shelf.png" alt="书架">
+    <div class="cap"><b>书架</b><br>继续收听带真实封面与进度<br>（进程杀掉后仍记得听到第 1 章）</div>
+  </div>
+  <div class="item">
+    <img src="shot-detail.png" alt="详情">
+    <div class="cap"><b>详情 + 章节</b><br>114 章，来自专辑接口分页<br>右侧浮层是系统音量条</div>
+  </div>
+  <div class="item">
+    <img src="shot-player.png" alt="播放页">
+    <div class="cap"><b>播放页</b><br>00:05 / 23:02，时长来自真实音轨<br>顶栏中间在 v1.3.0 已改为「伟哥听书」</div>
+  </div>
+</div>
+
+<div class="facts">
+  <h2>v1.3.1</h2>
+  <table>
+    <tr><td>新图标</td><td>书 + W 的抽象标；新增 Android 13 主题图标单色层（书画描边，否则实心封面会把 W 糊成一坨）</td></tr>
+    <tr><td>怎么定的</td><td>先画了十几个方向对比：<code>tools/render_icon.py</code> 会在本地渲染并模拟圆形遮罩，就是靠它否掉了「书页错层」——遮罩会把多出来的页角切掉</td></tr>
+  </table>
+
+  <h2>v1.3.0 改了什么</h2>
+  <table>
+    <tr><td>删掉书源页</td><td>底部从三个页签变两个（书架 / 发现）。源只有一个且写死在代码里，留个管理页只会让人以为需要配置</td></tr>
+    <tr><td>品牌露出</td><td>首页抬头「伟哥听书 · 有声小说」；详情页、播放页顶栏中间都是「伟哥听书」</td></tr>
+    <tr><td>顺手加的</td><td>首页右上角原来的「更多」换成日夜切换（书源入口没了，这个位置给常用功能）</td></tr>
+  </table>
+
+  <h2>v1.2.0 在这台机器上验到的东西</h2>
+  <table>
+    <tr><td>搜索 → 章节</td><td><span class="ok">✓</span> 20 条结果 / 326ms，114 章 / 309ms（6 页并发取全）</td></tr>
+    <tr><td>音频直链</td><td><span class="ok">✓</span> <code>aod.cos.tx.xmcdn.com/...mp3</code>，206 audio/mpeg，不带时效</td></tr>
+    <tr><td>后台播放</td><td><span class="ok">✓</span> 按 Home 后 position 21s → 39s 继续走</td></tr>
+    <tr><td>前台服务</td><td><span class="ok">✓</span> <code>isForeground=true</code>，foregroundId=2001</td></tr>
+    <tr><td>通知栏 / 锁屏</td><td><span class="ok">✓</span> channel=ts_playback_v1，importance=3，vis=PUBLIC，3 个按钮，标题=章节名、副标题=书名</td></tr>
+    <tr><td>进度记忆</td><td><span class="ok">✓</span> force-stop 后重启，「继续收听」仍在，显示听到第 1 章</td></tr>
+    <tr><td>收费过滤</td><td><span class="ok">✓</span> 搜「斗破苍穹」前 4 个付费专辑（is_paid=true）不再出现在结果里</td></tr>
+    <tr><td>断线</td><td><span class="warn">⚠</span> 华为 USB 在锁屏/息屏后会挂起，adb 会周期性掉线（不是 App 问题）</td></tr>
+  </table>
+</div>
+</body>
+</html>
