@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  主题图标（Android 13 的「主题化图标」）用的单色层。
+
+  不能用彩色前景那份代替：系统只看 alpha，实心封面会把 W 糊成一整块。
+  所以这里把书画成描边、W 画成描边，两个形状分开才认得出。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:pathData="M38,24 H66 A8,8 0 0 1 74,32 V76 A8,8 0 0 1 66,84 H38 A8,8 0 0 1 30,76 V32 A8,8 0 0 1 38,24 Z"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:fillColor="@android:color/transparent" />
+
+    <path
+        android:pathData="M38,46 L44.5,72 L52,46 L59.5,72 L66,46"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>
