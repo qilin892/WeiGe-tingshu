@@ -19,9 +19,9 @@ Android 听书 App。装上就能搜、就能听，不用配置任何书源—�
 
 ## 截图
 
-| 书架 | 详情 | 播放 |
-|---|---|---|
-| ![书架](preview/shot-shelf.png) | ![详情](preview/shot-detail.png) | ![播放](preview/shot-player.png) |
+| 书架 | 详情 | 播放 | 锁屏 |
+|---|---|---|---|
+| ![书架](preview/shot-shelf.png) | ![详情](preview/shot-detail.png) | ![播放](preview/shot-player.png) | ![锁屏](preview/lock-screen.jpg) |
 
 图标：一本书，封面上刻着 W（「伟」的首字母）。
 
