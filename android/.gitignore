@@ -20,3 +20,9 @@ captures/
 
 # 日志
 *.log
+
+# 发布签名（密钥与口令都不进仓库）
+keystore.properties
+keystore/
+*.jks
+*.keystore

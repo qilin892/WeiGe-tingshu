@@ -29,7 +29,7 @@ Android 听书 App。装上就能搜、就能听，不用配置任何书源—�
 
 ## 下载
 
-最新安装包见 [Releases](https://github.com/qilin892/WeiGe-tingshu/releases)。当前版本 `1.3.2`。
+最新安装包见 [Releases](https://github.com/qilin892/WeiGe-tingshu/releases)。当前版本 `1.3.2`（release 签名，R8 压缩后 2.46 MB）。
 
 仓库：<https://github.com/qilin892/WeiGe-tingshu>
 
@@ -40,9 +40,22 @@ Android 听书 App。装上就能搜、就能听，不用配置任何书源—�
 ```bash
 cd android
 echo "sdk.dir=/path/to/Android/sdk" > local.properties
-./gradlew assembleDebug
-# 产物：android/app/build/outputs/apk/debug/app-debug.apk
+
+./gradlew assembleDebug     # 调试版，约 21 MB
+./gradlew assembleRelease   # 发布版，R8 压缩后约 2.5 MB
 ```
+
+发布版签名读 `android/keystore.properties`（不进仓库）：
+
+```properties
+storeFile=keystore/weige-tingshu.jks
+storePassword=******
+keyAlias=weige
+keyPassword=******
+```
+
+没有这个文件时，release 会退回 debug 签名——别人 clone 下来也能直接构建，只是不能覆盖安装
+已发布的包（签名不同）。**自己发布的包必须用同一把密钥签后续版本**，否则用户只能卸载重装。
 
 ## 结构
 

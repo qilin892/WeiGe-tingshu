@@ -42,8 +42,8 @@
 <div class="head">
   <h1>伟哥听书 · 界面与图标</h1>
   <p>
-    华为 BRA-AL00 / Android 12，<b>v1.2.0</b> 实拍（底部还是三个页签）。
-    v1.3.0 删掉了「书源」页、首页抬头换成品牌名，v1.3.1 换了新图标——这两版还没补真机截图。
+    华为 BRA-AL00 / Android 12，<b>v1.3.2 release 版</b>实拍（R8 压缩后 2.46 MB）。
+    界面是当前状态：两个页签、首页抬头「伟哥听书」、播放页封面 960 那档。
     内容全部来自内置的喜马拉雅接口：搜索 → 专辑音轨 → MP3 直链，不经过任何网页解析。
   </p>
   <p style="margin-top:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
@@ -61,19 +61,28 @@
 <div class="row">
   <div class="item">
     <img src="shot-shelf.png" alt="书架">
-    <div class="cap"><b>书架</b><br>继续收听带真实封面与进度<br>（进程杀掉后仍记得听到第 1 章）</div>
+    <div class="cap"><b>书架</b><br>抬头「伟哥听书」· 2 本在架<br>继续收听记着听到第 1 章</div>
   </div>
   <div class="item">
     <img src="shot-detail.png" alt="详情">
-    <div class="cap"><b>详情 + 章节</b><br>114 章，来自专辑接口分页<br>右侧浮层是系统音量条</div>
+    <div class="cap"><b>详情 + 章节</b><br>114 章，音轨接口分 6 页取全<br>深链进来的书不显示主播名</div>
   </div>
   <div class="item">
     <img src="shot-player.png" alt="播放页">
-    <div class="cap"><b>播放页</b><br>00:05 / 23:02，时长来自真实音轨<br>顶栏中间在 v1.3.0 已改为「伟哥听书」</div>
+    <div class="cap"><b>播放页</b><br>03:30 / 23:02，封面取 960 那档<br>顶栏中间是「伟哥听书」</div>
   </div>
 </div>
 
 <div class="facts">
+  <h2>v1.3.2 release 版（上面三张截图就是这一版）</h2>
+  <table>
+    <tr><td>体积</td><td>debug 21 MB → release <b>2.46 MB</b>（R8 + 资源压缩）</td></tr>
+    <tr><td>签名</td><td>正式密钥 <code>CN=WeiGe Tingshu</code>，有效期 10000 天；密钥与口令都不进仓库</td></tr>
+    <tr><td>实测</td><td>装上启动无崩溃 → 深链开专辑 114 章正常 → 播放 <code>state=3</code>、进度 03:30 / 23:02、通知元数据完整</td></tr>
+    <tr><td>顺手修的</td><td>深链进来的书没有主播名时，不再显示「佚名」，直接空着</td></tr>
+    <tr><td>注意</td><td>和 debug 版签名不同，装过 debug 包的必须先卸载（会清掉书架与进度）</td></tr>
+  </table>
+
   <h2>v1.3.1</h2>
   <table>
     <tr><td>新图标</td><td>书 + W 的抽象标；新增 Android 13 主题图标单色层（书画描边，否则实心封面会把 W 糊成一坨）</td></tr>
@@ -87,7 +96,7 @@
     <tr><td>顺手加的</td><td>首页右上角原来的「更多」换成日夜切换（书源入口没了，这个位置给常用功能）</td></tr>
   </table>
 
-  <h2>v1.2.0 在这台机器上验到的东西</h2>
+  <h2>之前几版验过的东西</h2>
   <table>
     <tr><td>搜索 → 章节</td><td><span class="ok">✓</span> 20 条结果 / 326ms，114 章 / 309ms（6 页并发取全）</td></tr>
     <tr><td>音频直链</td><td><span class="ok">✓</span> <code>aod.cos.tx.xmcdn.com/...mp3</code>，206 audio/mpeg，不带时效</td></tr>

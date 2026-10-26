@@ -86,12 +86,15 @@ fun BookScreen(vm: AppViewModel) {
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        book.author.ifBlank { "佚名" },
-                        color = Palette.Text2,
-                        fontSize = 12.sp,
-                    )
+                    // 深链打开的书拿不到主播名（音轨接口只给 uid），宁可空着也别写「佚名」
+                    if (book.author.isNotBlank()) {
+                        Spacer(Modifier.height(6.dp))
+                        Text(
+                            book.author,
+                            color = Palette.Text2,
+                            fontSize = 12.sp,
+                        )
+                    }
                     Spacer(Modifier.height(4.dp))
                     Text(
                         if (chapters.isEmpty()) "章节未加载" else "共 ${chapters.size} 章",
