@@ -107,48 +107,11 @@ class TingshuNotificationProvider(private val context: Context) : MediaNotificat
 
         builder.setStyle(MediaStyleNotificationHelper.MediaStyle(s).setShowActionsInCompactView(0, 1, 2))
 
-        // 再盖一层展开视图：MediaStyle 的展开态没有大封面
-        runCatching { builder.setCustomBigContentView(buildExpanded(s, f, title, text, mediaId, playing)) }
-
+        // 曾经在这里盖过一层自定义展开视图（自带深色底 + 浅色字），结果华为锁屏会把
+        // 系统卡片底铺进来、把自定义背景丢掉，浅字压在浅底上几乎看不清。
+        // 现在交回系统 MediaStyle：底色和文字颜色由系统按深浅主题自己配，
+        // 通知栏、锁屏、深色壁纸下都不会出现「浅底浅字」。
         return builder.build()
-    }
-
-    private fun buildExpanded(
-        session: MediaSession,
-        factory: MediaNotification.ActionFactory,
-        title: String,
-        subText: String,
-        mediaId: String?,
-        playing: Boolean,
-    ): android.widget.RemoteViews {
-        val rv = android.widget.RemoteViews(context.packageName, R.layout.notification_player)
-        rv.setTextViewText(R.id.np_title, title)
-        rv.setTextViewText(R.id.np_sub, subText)
-
-        val playIcon = if (playing) {
-            androidx.media3.session.R.drawable.media3_icon_pause
-        } else {
-            androidx.media3.session.R.drawable.media3_icon_play
-        }
-        rv.setImageViewResource(R.id.np_prev, androidx.media3.session.R.drawable.media3_icon_previous)
-        rv.setImageViewResource(R.id.np_play, playIcon)
-        rv.setImageViewResource(R.id.np_next, androidx.media3.session.R.drawable.media3_icon_next)
-
-        NowPlayingState.coverOf(mediaId)?.let { rv.setImageViewBitmap(R.id.np_cover, it) }
-
-        rv.setOnClickPendingIntent(
-            R.id.np_prev,
-            factory.createMediaActionPendingIntent(session, Player.COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM.toLong()),
-        )
-        rv.setOnClickPendingIntent(
-            R.id.np_play,
-            factory.createMediaActionPendingIntent(session, Player.COMMAND_PLAY_PAUSE.toLong()),
-        )
-        rv.setOnClickPendingIntent(
-            R.id.np_next,
-            factory.createMediaActionPendingIntent(session, Player.COMMAND_SEEK_TO_NEXT_MEDIA_ITEM.toLong()),
-        )
-        return rv
     }
 
     private companion object {
