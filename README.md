@@ -29,7 +29,9 @@ Android 听书 App。装上就能搜、就能听，不用配置任何书源—�
 
 ## 下载
 
-见 [Releases](../../releases)。当前版本 `1.3.2`。
+最新安装包见 [Releases](https://github.com/qilin892/WeiGe-tingshu/releases)。当前版本 `1.3.2`。
+
+仓库：<https://github.com/qilin892/WeiGe-tingshu>
 
 ## 构建
 
